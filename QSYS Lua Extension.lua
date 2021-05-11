@@ -364,7 +364,7 @@ end
 --Sets specified cue gains with optional ramp time
 --cues : list of cue
 --gain : Gain value to set
---ramp : optional ramp time to get get to the selected value  
+--ramp : optional ramp time to get to the selected value  
 function SetCueGain(cues, gain, ramp)
     
 end
@@ -382,3 +382,55 @@ end
 function GetMixerCrossPoints(ins, outs)
     
 end
+
+--The methods in NamedControl are used to read or set the values of Named Controls. 
+NamedControl = {}
+
+--Sets control with specified Control name to specified string value. If Control name does not exist an error is raised.
+--control_name : the name of the control
+--string : string value to set
+function NamedControl.SetString(control_name, string)
+    
+end
+
+--Returns string of control with specified Control name. If Control name does not exist an error is raised.
+--control_name : the name of the control
+function NamedControl.GetString(control_name)
+    
+end
+
+--Sets control with specified Control name to specified position. The ramp time is optional, and is in seconds. If Control name does not exist an error is raised.
+--
+--control_name : the name of the control
+--position : floating point position which goes from 0.0 -> 1.0 
+--ramp : optional ramp time to get to the selected value
+function NamedControl.SetPosition(control_name, position, ramp)
+    
+end
+
+--Returns position of control with specified Control name. If Control name does not exist an error is raised.
+--control_name : the name of the control
+function NamedControl.GetPosition(control_name)
+    
+end
+
+--Sets control with specified Control name to specified value. The ramp time is optional, and is in seconds. If Control name does not exist an error is raised.
+--control_name : the name of the control
+--value : string representation of control value 
+--ramp : optional ramp time to get to the selected value
+function  NamedControl.SetValue(control_name, value, ramp)
+    
+end
+
+--Returns value of control with specified Control name. If Control name does not exist an error is raised.
+--control_name : the name of the control
+function NamedControl.GetValue(control_name)
+    
+end
+
+--Triggers control with specified Control name. If Control name does not exist an error is raised.
+--control_name : the name of the control
+function NamedControl.Trigger(control_name)
+    
+end
+
