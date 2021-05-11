@@ -563,3 +563,5 @@ QRCode = {
 function QRCode.GenerateSVG(url, mode)
     
 end
+
+--TODO: continue from RapidJSON extension
