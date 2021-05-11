@@ -278,8 +278,107 @@ function Mixer:New( mixerName ) end
 --ins : list of input
 --outs : list of output
 --gains : Gain value to set
---ramp : ramp time to get get to the selected value  
+--ramp : optional ramp time to get get to the selected value  
 function SetCrossPointGain(ins, outs, gain, ramp)
     
 end
 
+--Sets specified cross point mutes with boolean
+--ins : list of input
+--outs : list of output
+--mute : boolean value for mute
+function SetCrossPointMute(ins, outs, mute)
+    
+end
+
+--Sets specified cross point solos with boolean
+--ins : list of input
+--outs : list of output
+--mute : boolean value for mute
+function SetCrossPointSolo(ins, outs, mute)
+    
+end
+
+--Sets specified cross point delay with optional ramp time
+--ins : list of input
+--outs : list of output
+--delay: the delay value in milliseconds
+--ramp : optional ramp time to get get to the selected value  
+function SetCrossPointDelay(ins, outs, delay, ramp)
+    
+end
+
+--Sets specified input gain with optional ramp time
+--ins : list of input
+--gains : Gain value to set
+--ramp : optional ramp time to get get to the selected value  
+function SetInputGain(ins, gains, ramp)
+    
+end
+
+--Sets specified input mutes
+--ins : list of input
+--mute : boolean value for mute
+function SetInputMute(ins, mute)
+    
+end
+
+--Sets specified input solos
+--ins : list of input
+--solo : boolean for solo
+function SetInputSolo( ins, solo)
+    
+end
+
+--Sets specified output gain with optional ramp time
+--outs : list of output
+--gain : Gain value to set
+--ramp : optional ramp time to get get to the selected value  
+function SetOutputGain(outs, gain, ramp)
+    
+end
+
+
+--Sets specified output mutes
+--outs : list of output
+--mute : boolean value for mute
+function SetOutputMute(outs, mute)
+    
+end
+
+--Sets specified input cues enables
+--ins : list of input
+--cues : list of cue
+--enable : boolean to enable/disable cue
+function SetInputCueEnable(ins, cues, enable)
+    
+end
+
+--Sets specified input AFL enables
+--ins : list of input
+--afls : list of AFL (After fader level)
+function SetInputCueAfl(ins, afls, enable)
+    
+end
+
+--Sets specified cue gains with optional ramp time
+--cues : list of cue
+--gain : Gain value to set
+--ramp : optional ramp time to get get to the selected value  
+function SetCueGain(cues, gain, ramp)
+    
+end
+
+--Sets specified cue mutes
+--cues : list of cue
+--mute : boolean value for mute
+function SetCueMute(cues, mute)
+    
+end
+
+--Gets specified cross point values
+--ins : list of input
+--outs : list of output
+function GetMixerCrossPoints(ins, outs)
+    
+end
