@@ -546,3 +546,20 @@ end
 function Ping.ErrorHandler(response)
     
 end
+
+--Rappresent a QRCode, NOT used normally, use only the functions/methods
+QRCode = {
+    url = "",
+    mode = ""
+}
+
+--Generate a QR code SVG graphic.
+--url : The URL string to encode.
+--mode : Optional error correction mode string. Replace with low, medium, quartile, or high. Defaults to "medium" if not passed.
+--low = Level L, up to 7% error correction.
+--medium = Level M, up to 15% error correction.
+--quartile = Level Q, up to 25% error correction.
+--high = Level H, up to 30% error correction.
+function QRCode.GenerateSVG(url, mode)
+    
+end
