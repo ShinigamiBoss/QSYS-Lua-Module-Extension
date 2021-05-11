@@ -461,3 +461,88 @@ end
 function Network.Interfaces()
     
 end
+
+--Use the following methods to subscribe to a notification, publish a notification with specified data, and unsubscribe from a notification. 
+--This allows scripts running within the same Core to communicate with each other using control wiring or Component.
+Notifications = {
+    --noteid : The token to use when unsubscribing from a notification.
+    noteid = ""
+}
+
+
+--Subscribe to a notification with a given name.
+--Unsubscribe from a notification with the specified noteid.
+--func : The callback to call when the named notification is triggered. The signature is function( name, data ).
+function Notifications.Subscribe( name, func )
+    
+end
+
+--Publish a named notification with given data. The data can be either a Lua table or a string.
+--Note: You cannot call the Notifications.Publish() method inside a Notifications.Subscribe() callback. This will raise a Lua error.
+--name : The name of the notification.
+--data : the notification data
+function Notifications.Publish(name, data)
+    
+end
+
+--Unsubscribe from a notification with the specified noteid.
+--name : The name of the notification.
+function Notifications.Unsubscribe(noteid)
+    
+end
+
+--Use the Ping library in Lua to check whether a device is reachable on the network.
+--Note: The Lua Ping library requires that you run Q-SYS Designer as administrator ("Run as administrator" option in Windows) when emulating your design. 
+--If you see a non-terminating "Socket failed to open" error message in the debug window, re-launch Designer as administrator.
+--Ping object MUST be initialized with the .New function
+Ping = {
+    host = ""
+}
+
+--Rappresent a ping response object
+PingResponses =
+{
+    HostName = "",
+    ElapsedTime = 1
+}
+
+--Create a new ping object.
+--target_host : The hostname to ping.
+function Ping.New(target_host)
+    
+end
+
+--Begin the ping session.
+--single_shot : Bool. Set to true if you want only a single ping attempt.
+function Ping:start(single_shot)
+    
+end
+
+--Stop the ping session.
+function Ping:stop()
+    
+end
+
+--Set the timeout for waiting for a ping response.
+--interval : The timeout duration, in seconds.
+function Ping:setTimeoutInterval(interval)
+    
+end
+
+--Set the interval for retrying after a ping request.
+--interval : The timeout duration, in seconds.
+function Ping:setPingInterval(interval)
+    
+end
+
+--Assign a Lua callback for successful ping events.
+--response : callback for responseobject
+function Ping.EventHandler(response)
+    
+end
+
+--Assign a Lua callback for unsuccessful ping events.
+--response : callback for responseobject
+function Ping.ErrorHandler(response)
+    
+end
