@@ -434,3 +434,30 @@ function NamedControl.Trigger(control_name)
     
 end
 
+--Use the Network commands to return the full host name and IP address of a specified host, or obtain a table of network interface names and their IP addresses.
+Network = {
+    name = "",
+    addresses = {},
+    interface = {
+        [1] = {
+            Interface = "",
+            Address = "",
+            MACAddress = "",
+            BroadcastAddress = "",
+            Gateway = "",
+            Netmask = ""
+        }
+    }
+}
+
+--Return an object with the name (.name) and addresses (.addresses) of a specified host, where .addresses is a table of strings.
+--host : The host name for which to obtain network information.
+function Network.GetHostByName(host)
+    
+end
+
+--Return a table of network interface names (.Interface) and the IP address (.Address), MAC address (.MACAddress), broadcast address (.BroadcastAddress), 
+--gateway (.Gateway), and netmask (.Netmask) for each.
+function Network.Interfaces()
+    
+end
