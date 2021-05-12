@@ -564,4 +564,122 @@ function QRCode.GenerateSVG(url, mode)
     
 end
 
---TODO: continue from RapidJSON extension
+--Use the RapidJSON module to encode and decode large documents quickly. 
+--It is similar to the standard JSON module, but can handle large amounts of data without risk of raising execution count errors.
+--To use the RapidJSON module, add the following line to your script: rapidjson = require("rapidjson")
+rapidjson = {
+    _NAME = "rapidjson",
+    _VERSION = "scm"
+}
+
+--Encode a Lua table to JSON string. JSON object keys are sorted by this function.
+--value : When passed as a table: it is encoded as JSON array if: meta field __jsontype set to array. table contains length > 0. otherwise the table is encoded as JSON object and non string keys and its values are ignored.
+--When passed with true, false, number and rapidjson.null, simply encode as a simple JSON value.
+--option : A optional table contains the following field:
+--pretty boolean: Set true to make output string to be pretty formated. Default is false.
+--sort_keys boolean: Set true to make JSON object keys be sorted. Default is false.
+--empty_table_as_array boolean: Set true to make empty table encode as JSON array. Default is false.
+function rapidjson.encode(value, option) end
+
+--Decode JSON to a Lua table.
+--value : A JSON value string to be decoded.
+function rapidjson.decode(value) end
+
+--Load JSON file into Lua table.
+--filename : The JSON file to be loaded.
+function rapidjson.load(filename) end
+
+--Dump a Lua value to a JSON file.
+--value : Same as in rapidjson.encode().
+--filename : The file path string where to save the rapidjson string.
+--option : Same as in options in rapidjson.encode().
+function rapidjson.dump(value, filename, option) end
+
+--Placeholder for null values in rapidjson.
+function rapidjson.null() end
+
+--Create a new empty table that has the metatable field __jsontype set as 'object' so that the encode and dump function will encode it as a JSON object.
+--table : Optional table to set the metatable with meta field __jsontype set as 'object'.
+function rapidjson.object(table) end
+
+--Same as rapidjson.object(), except the metatable field __jsontype is set as 'array'. The encode and dump function will encode it as JSON array.
+function rapidjson.array() end
+
+--Serial port communication is supported via the RS-232 ports on some Q-SYS devices. 
+--You can use a scripting component, including Control Script and Block Controller, to create a serial port connection in Q-SYS.
+SerialPorts = {
+     [1] = {
+        --Returns true if port is connected, is readonly
+        IsOpen = false,
+        --Number of bytes of data in buffer
+        BufferLength = 1,
+        --This table contains pre-defined END OF LINE values
+        EOL = {
+            Any = "",
+            CrLf = "\r\n" or "\n",
+            CrLfStrict = "\r\n",
+            Lf = "\n",
+            Null = '\x00',
+            Custom = ""
+        },
+        Events = {
+            "Connected",
+            "Reconnect",
+            "Data",
+            "Closed",
+            "Error",
+            "Timeout"
+        }
+    }
+}
+
+--Function called on any serial event.
+--port : the port where the event happen
+--event : the event type
+function SerialPorts.EventHandler(port, event) end
+
+--Attempts to open the serial port with the specified baud rate (up to 230400 bits per second)
+--baudRate : the baud rate of the port up to 230400 b/sec
+--dataBits : dataBits - optional: 7, 8. Default = 8.
+--parity : optional with dataBits: N (None), E (Even), O (Odd), M (Mark), S (Space)
+function SerialPorts[1]:Open(baudRate, dataBits, parity) end
+
+--Closes the serial port
+function SerialPorts[1]:Close()end
+
+--Writes specified data to the serial port. Raises error if port is not open.
+--data : the data to write
+function SerialPorts[1]:Write(data) end
+
+--Attempts to read up the 'length' bytes from serial buffer. Data is removed from serial buffer.
+--length : length value to read
+function SerialPorts[1]:Read(length) end
+
+--Attempts to read a 'line' from the serial buffer. 
+--EOL : is defined as in the SerialPorts.EOL table. 
+--custom : is an optional string only used by EOL.Custom.
+function SerialPorts[1]:RealLine(EOL, Custom) end
+
+--Searches the serial buffer for string 'str'
+--string : the string to find in the buffer
+--start_pos : optional start index where the search starts
+function SerialPorts[1]:Search(string, start_pos) end
+
+--Assign a function which is called upon connection to the serial port
+function SerialPorts.Connected() end
+
+--Assign a function which is called when socket is attempting to reconnect to the serial port
+function SerialPorts.Reconnect() end
+
+--Assign a function which is called when there is new data available in the serial buffer
+function SerialPorts.Data() end
+
+--Assign a function which is called when the serial port is closed
+function SerialPorts.Closed() end
+
+--Assign a function which is called when the serial port is closed due to error. 
+--The error argument in the function will contain more information, which can be displayed if a variable was created to catch the error message.
+function SerialPorts.Error() end
+
+--Assign a function which is called when a read or write timeout is triggered and the serial port was closed.
+function SerialPorts.Timeout() end
