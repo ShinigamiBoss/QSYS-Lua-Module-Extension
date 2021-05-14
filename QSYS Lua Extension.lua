@@ -1,3 +1,34 @@
+--[[
+ * QSYS Lua Extension
+ *
+ * Copyright (c) Fabio Feliciosi
+ * All rights reserved.
+ *
+ * MIT License
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this
+ * software and associated documentation files (the "Software"), to deal in the Software
+ * without restriction, including without limitation the rights to use, copy, modify, merge,
+ * publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+ * to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or
+ * substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ * PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+ * FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+ * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ 
+ ]]--
+
+ --[[
+     If you like my work feel free to contact me via email: fabio.freelance.boss@gmail.com
+     Please consider donating for more work and projects: https://www.paypal.com/donate?hosted_button_id=7RTFJYWREF8PW&source=url
+ ]]--
+
 --Component object
 Component = {}
 --Component class functions
@@ -975,3 +1006,31 @@ function Uci.SetSharedLayerVisibility(UCI_Name, Layer_Name, Visibility, Transiti
 --Log off from a specified TSC touchscreen controller or UCI Viewer
 --The name of the TSC touchscreen controller or UCI Viewer.
 function Uci.LogOff(TSC_Name) end
+
+--Send and receive data over a UDP Socket connection.
+UdpSocket = {
+    --Assign a function which is called when data is received 
+    Data = nil
+}
+
+--Creates a UDP Socket instance.
+function UdpSocket.New() end
+
+--Opens the UDP 'listener.' Optionally bind to local IP and Port.
+--ip_address : ip address where to listen to, ususally is a bind to the local address
+--port : listening port
+function UdpSocket:Open(ip_address, port) end
+
+--Closes the UDP socket
+function UdpSocket:Close() end
+
+--Sends data to the specified ip address and port
+--ip_address : destination IP Address/Host
+--port : destination port
+--data : data to send
+function UdpSocket:Send(ip_address, port, data) end
+
+--Joins a specific multicast 'address', optionally binding to a local 'ip'.
+--address : multicast address to join
+--ip : optional local ip binding
+function UdpSocket:JoinMulticast(address, ip) end
