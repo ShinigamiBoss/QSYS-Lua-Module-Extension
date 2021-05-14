@@ -3,3 +3,5 @@
 
  With the file you can access advanced features like intellisense and autocompletition for your QSYS lua scripting enviroment.
  For each function there is also a description of what it does and based on your enviroment the function help will show up.
+
+ Please consider donating for more work and projects: [PayPal](https://www.paypal.com/donate?hosted_button_id=7RTFJYWREF8PW&source=url)
