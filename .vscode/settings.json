@@ -1,5 +1,9 @@
 {
     "Lua.diagnostics.disable": [
         "lowercase-global"
-    ]
+    ],
+
+    "files.associations": {
+        "*.qplug": "lua"
+    }
 }
